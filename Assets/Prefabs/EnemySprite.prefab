@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6400705444979675665}
   - component: {fileID: 8659722497521949663}
   - component: {fileID: 3506462396726285414}
+  - component: {fileID: 2351238763947411323}
   m_Layer: 0
   m_Name: EnemySprite
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.6642394, y: -0.058061063, z: 0.08767247}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,3 +125,26 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1.28
+--- !u!114 &2351238763947411323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4613363303954959749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fae89babadf034ca9f07699cdfc062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpPrefab: {fileID: 2894941925355656372, guid: 252d4e1217a5c444ca95ca6f44df6379, type: 3}
+  bronzeCoinPrefab: {fileID: 3523048959767959980, guid: 2429e8a8cdcd32c4ca9935fb46169d51, type: 3}
+  silverCoinPrefab: {fileID: 4594280647091539604, guid: 4e1d0146eaa264c42b866ab17497389c, type: 3}
+  goldCoinPrefab: {fileID: 6792941837886494387, guid: 258dcecc82c7c2d4fa22c8e0005a6de3, type: 3}
+  moneyDropChance: 50
+  goldChance: 5
+  silverChance: 25
+  attackDamage: 25
+  attackCooldown: 1.5
+  speed: 2.5
+  maxHealth: 3
