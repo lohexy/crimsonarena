@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409bedefa918bfd448b63656ba84f708, type: 3}
   m_Name: bow
   m_EditorClassIdentifier: 
-  itemName: 
-  itemIcon: {fileID: 0}
-  weaponType: 0
+  itemName: bow
+  itemIcon: {fileID: -415446080585258355, guid: 07762758bdfc2884d897810dc82b8702, type: 3}
+  weaponType: 2
   itemType: 0
   healthBonus: 0
-  damageBonus: 0
+  damageBonus: 30

@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 409bedefa918bfd448b63656ba84f708, type: 3}
+  m_Name: staff 1
+  m_EditorClassIdentifier: 
+  itemName: staff
+  itemIcon: {fileID: -8743211719199336673, guid: 49c21e9b7658d404cbbe4d887de136a5, type: 3}
+  weaponType: 2
+  itemType: 0
+  itemTier: 1
+  cost: 50
+  damageBonus: 30
+  attackRangeBonus: 0
+  attackSpeedMultiplierBonus: 1.25
+  critChanceBonus: 0
+  critDamageMultiplierBonus: 0
+  healthBonus: 15
+  hpRegenBonus: 5
+  dodgeChanceBonus: 0
+  blockChanceBonus: 0
+  armorBonus: 0
+  moveSpeedBonus: 0
+  goldMultiplierBonus: 0
+  xpMultiplierBonus: 0
+  luckBonus: 0
+  useCustomSlashColor: 0
+  slashTrailColor:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  maxSwingDamageMultiplier: 2
+  projectilePrefab: {fileID: 5590486565223503627, guid: 78c4f27f189815c46a602c17a409a600, type: 3}
+  maxChargeTime: 1
+  maxChargeDamageMultiplier: 1.5
+  maxChargeSizeMultiplier: 1.5

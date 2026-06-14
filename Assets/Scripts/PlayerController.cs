@@ -25,20 +25,33 @@ public class PlayerController : MonoBehaviour
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
 
-     if (Camera.main != null)
+        if (Camera.main != null)
         {
-           mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
-//
-   //     if (Input.GetButton("Fire1") && currentWeapon != null) 
-   //     {
-  //          currentWeapon.Fire(mousePos);
-   //     }
-}
+
+        // 🔥 ВИКЛИКАЄМО ОБЕРТАННЯ ЗА МИШКОЮ
+        RotateTowardsMouse();
+    }
 
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + moveInput.normalized * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    // 🔥 НОВИЙ МЕТОД ДЛЯ ОБЕРТАННЯ ЛИЦЯРЯ
+    void RotateTowardsMouse()
+    {
+        // Рахуємо напрямок від гравця до курсора миші
+        Vector2 lookDirection = mousePos - (Vector2)transform.position;
+        
+        // Вираховуємо кут в градусах
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        
+        // Оскільки твоя зброя та спрайт знаходяться на одному об'єкті й мають дивитися в один бік:
+        // Якщо спрайт лицаря за замовчуванням дивиться ВПРАВО — залишай просто angle.
+        // Якщо лицар спочатку дивиться ВГОРУ — допиши: angle - 90f;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     public void ChangeWeapon(Weapon newWeapon)

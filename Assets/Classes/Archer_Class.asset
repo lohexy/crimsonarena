@@ -14,8 +14,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   className: 
   description: 
-  startHealth: 75
-  moveSpeed: 5
-  baseDamage: 8
-  characterSprite: {fileID: 0}
+  startMaxHealth: 80
+  startHpRegen: 2
+  startMoveSpeed: 6
+  startBaseDamage: 10
+  attackRangeMelee: 1.5
+  attackRangeRanged: 5
+  attackSpeedMultiplier: 1.5
+  damageMultiplier: 1.2
+  startCritChance: 0.1
+  critDamageMultiplier: 2
+  startDodgeChance: 0.2
+  startBlockChance: 0
+  goldMultiplier: 1
+  xpMultiplier: 1
+  luck: 1
+  healthStep: 10
+  healthMax: 500
+  regenStep: 0.2
+  regenMax: 10
+  speedStep: 0.2
+  speedMax: 10
+  damageStep: 2
+  damageMax: 100
+  critStep: 0.02
+  critMax: 0.5
+  critDmgStep: 0.1
+  critDmgMax: 5
+  dodgeStep: 0.01
+  dodgeMax: 0.3
+  blockStep: 0.02
+  blockMax: 0.6
+  luckStep: 0.1
+  luckMax: 3
+  characterSprite: {fileID: -4910088520043721169, guid: 47dba20d179203a47b0ef0fd0791df94, type: 3}
   startingWeaponPrefab: {fileID: 0}
+  classSpriteScale: 1

@@ -1060,8 +1060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4fbc8e5e900c74786e2d3c6e79ea28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warriorClass: {fileID: 11400000, guid: d7f73a719cfe1894bbe76b3bc4899d26, type: 2}
-  mageClass: {fileID: 11400000, guid: de59110d4129d48449759d9da592f538, type: 2}
+  warriorClass: {fileID: 11400000, guid: de59110d4129d48449759d9da592f538, type: 2}
+  mageClass: {fileID: 11400000, guid: d7f73a719cfe1894bbe76b3bc4899d26, type: 2}
   archerClass: {fileID: 11400000, guid: 835b61425480eca4ab065f281b5258aa, type: 2}
 --- !u!4 &1168062301
 Transform:

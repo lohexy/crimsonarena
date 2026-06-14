@@ -15,7 +15,6 @@ public class MeleeWeapon : MonoBehaviour
     {
         if (Time.time >= nextAttackTime)
         {
-            nextAttackTime = Time.time + attackRate;
             lastMousePosition = mousePosition;
             Attack();
         }
@@ -23,18 +22,35 @@ public class MeleeWeapon : MonoBehaviour
 
     void Attack()
     {
-        Vector2 direction = (lastMousePosition - (Vector2)transform.position).normalized;
+        PlayerStats stats = GetComponentInParent<PlayerStats>();
+        float currentRange = attackRange;
+        int finalDamage = damage;
+        bool isCrit = false;
 
-        Vector3 attackPoint = transform.position + (Vector3)direction * 1f;
+        if (stats != null)
+        {
+            currentRange = stats.attackRangeMelee;
+            finalDamage = stats.GetCalculatedDamage(true, out isCrit);
+            
+            attackRate = 0.6f / stats.attackSpeedMultiplier; 
+        }
 
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint, attackRange, enemyLayer);
+        nextAttackTime = Time.time + attackRate;
+
+        Vector3 centerPoint = (transform.parent != null) ? transform.parent.position : transform.position;
+        Vector2 direction = (lastMousePosition - (Vector2)centerPoint).normalized;
+        
+        Vector3 attackPoint = centerPoint + (Vector3)direction * 1f;
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint, currentRange, enemyLayer);
 
         foreach (Collider2D enemyCollider in hitEnemies)
         {
             Enemy enemy = enemyCollider.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                if (isCrit) Debug.Log("<color=yellow>💥 КРИТ МЕЧЕМ!</color>");
+                enemy.TakeDamage(finalDamage);
             }
         }
     }
@@ -42,7 +58,7 @@ public class MeleeWeapon : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Vector3 previewPoint = transform.position + transform.right * 1f;
-        Gizmos.DrawWireSphere(previewPoint, attackRange);
+        Vector3 centerPoint = (transform.parent != null) ? transform.parent.position : transform.position;
+        Gizmos.DrawWireSphere(centerPoint + transform.right * 1f, attackRange);
     }
 }
