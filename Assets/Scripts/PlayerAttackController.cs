@@ -111,7 +111,7 @@ public class PlayerAttackController : MonoBehaviour
 
         if (inventory.equippedWeapon.weaponType == ItemData.WeaponType.Melee)
         {
-            isCharging = false; // На всяк випадок скидаємо заряд лука
+            isCharging = false;
 
             if (Input.GetButtonDown("Fire1") && Time.time >= nextFireTime)
             {

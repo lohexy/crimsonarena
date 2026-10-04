@@ -19,7 +19,7 @@ public class ChestSpawner : MonoBehaviour
         if (spawnTimer <= 0f)
         {
             SpawnRandomChest();
-            spawnTimer = 60f; // Скидаємо таймер знову на 1 хвилину
+            spawnTimer = 60f;
         }
     }
 

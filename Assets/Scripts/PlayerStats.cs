@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement; // 🔥 ДОДАНО: Потрібно для перезапуску сцени
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -54,7 +54,7 @@ public class PlayerStats : MonoBehaviour
     public TextMeshProUGUI statPointsText; 
 
     [Header("Вікна станів гри")]
-    public GameObject gameOverPanel; // 🔥 ДОДАНО: Перетягни сюди UI-панель поразки з Canvas
+    public GameObject gameOverPanel;
 
     private int attackCounter = 0;
     private bool isInvulnerable = false;
@@ -62,17 +62,14 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        // Переконуємось, що час іде після рестарту або виходу з паузи
         Time.timeScale = 1f; 
 
-        // 🔥 ОСЬ ЦЕЙ ЗВ'ЯЗОК З ТВОЇМ МЕНЮ:
-        // Перевіряємо, чи у скрипті MainMenu була заповнена статична змінна
         if (MainMenu.SelectedClass != null)
         {
-            currentClass = MainMenu.SelectedClass; // Беремо клас, який ти обрав кнопкою!
+            currentClass = MainMenu.SelectedClass;
         }
 
-        ApplyClassSettings(); // Застосовуємо ХП, демедж та СПРАЙТ нового класу
+        ApplyClassSettings();
         currentHealth = maxHealth;
         SyncMoveSpeed();
         
@@ -303,7 +300,7 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (currentHealth <= 0) return; // Якщо вже мертвий, шкоду не приймаємо
+        if (currentHealth <= 0) return;
         if (isInvulnerable) return;
         if (Random.value <= dodgeChance) return;
 
@@ -317,7 +314,7 @@ public class PlayerStats : MonoBehaviour
         {
             currentHealth = 0;
             UpdateUI();
-            Die(); // 🔥 ВИКЛИК СМЕРТІ
+            Die();
             return;
         }
 
@@ -385,31 +382,27 @@ public class PlayerStats : MonoBehaviour
         if (statPointsText != null) statPointsText.text = "Очки статів: " + statPoints;
     }
 
-    // 🔥 ДОДАНО: Метод смерті гравця
     void Die()
     {
         Debug.Log("Гравець загинув під час тестів!");
 
         if (gameOverPanel != null)
         {
-            gameOverPanel.SetActive(true); // Вмикаємо UI вікно
+            gameOverPanel.SetActive(true);
         }
 
-        Time.timeScale = 0f; // Зупиняємо ігровий процес (анімації, спавн хвиль, фізику)
+        Time.timeScale = 0f;
     }
 
-    // 🔥 ДОДАНО: Метод для кнопки Restart на панелі Game Over
     public void RestartGame()
     {
-        Time.timeScale = 1f; // Повертаємо час у норму
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Перезапускаємо поточну сцену
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    // 🔥 ДОДАНО: Метод для кнопки виходу в меню
     public void GoToMenu()
     {
        Time.timeScale = 1f;
-        // Тепер назва точно збігається з налаштуваннями твоїх Build Profiles!
-        SceneManager.LoadScene("MainMenuScene"); // Заміни на точну назву сцени свого головного меню
+        SceneManager.LoadScene("MainMenuScene");
     }
 }
